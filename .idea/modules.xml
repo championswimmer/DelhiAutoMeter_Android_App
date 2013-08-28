@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DelhiAutoMeter/DelhiAutoMeter.iml" filepath="$PROJECT_DIR$/DelhiAutoMeter/DelhiAutoMeter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DelhiAutoMeterProject.iml" filepath="$PROJECT_DIR$/DelhiAutoMeterProject.iml" />
+    </modules>
+  </component>
+</project>
+

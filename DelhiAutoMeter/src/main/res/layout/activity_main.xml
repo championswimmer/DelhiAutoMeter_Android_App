@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/kilometers"
+            android:layout_gravity="left|center_vertical"
+            android:width="150dp"
+            android:text="0.0"
+            android:numeric="decimal"
+            android:lines="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/oldFare"
+            android:layout_gravity="left|center_vertical"
+            android:width="150dp"
+            android:text="0.00"
+            android:numeric="decimal"
+            android:lines="1"
+            android:layout_below="@+id/kilometers"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search by old fare"
+            android:id="@+id/oldFareSearch"
+            android:singleLine="false"
+            android:layout_below="@+id/kilometers"
+            android:layout_toRightOf="@+id/kilometers"
+            android:layout_alignBottom="@+id/oldFare"
+            android:layout_alignRight="@+id/kilometerSearch"
+            android:onClick="getFareFromOldFare" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search by kilometers"
+            android:id="@+id/kilometerSearch"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/kilometers"
+            android:singleLine="false"
+            android:layout_above="@+id/oldFare"
+            android:onClick="getFareFromKilometers" />
+    </RelativeLayout>
+</RelativeLayout>
