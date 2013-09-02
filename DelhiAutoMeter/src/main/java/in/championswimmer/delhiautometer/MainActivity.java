@@ -2,6 +2,7 @@ package in.championswimmer.delhiautometer;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -65,5 +66,9 @@ public class MainActivity extends Activity {
         showFare.setMessage("Your fare is Rs. " + (String.format("%.2f", newFare)));
         showFare.show();
     }
-    
+
+    public void gotoRealTimeTracking(View v) {
+        Intent track = new Intent(this, TrackActivity.class);
+        startActivity(track);
+    }
 }

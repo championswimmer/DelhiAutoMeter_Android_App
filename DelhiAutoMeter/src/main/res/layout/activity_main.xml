@@ -66,4 +66,14 @@
             android:layout_above="@+id/oldFare"
             android:onClick="getFareFromKilometers" />
     </RelativeLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Track (Real Time)"
+        android:id="@+id/buttonRealTime"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoRealTimeTracking" />
 </RelativeLayout>
