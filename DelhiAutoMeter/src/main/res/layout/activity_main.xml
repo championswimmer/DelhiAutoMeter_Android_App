@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout">
 
         <EditText
             android:layout_width="wrap_content"
@@ -45,8 +46,8 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
-            android:text="Search by
-            \nold fare"
+            android:text="Convert from
+\nold fare"
             android:id="@+id/oldFareSearch"
             android:singleLine="false"
             android:layout_below="@+id/kilometers"
@@ -62,8 +63,8 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
-            android:text="Search by
-            \nkilometers"
+            android:text="Calculate from
+\nkilometers"
             android:id="@+id/kilometerSearch"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/kilometers"
@@ -92,5 +93,14 @@
         android:text="A live Auto meter that will show Kilometeres travelled and Fare (calculated as per new rate) as you keep travelling in an Auto."
         android:id="@+id/textView"
         android:layout_below="@+id/buttonRealTime"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="New Fare Calculator"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/relativeLayout"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
