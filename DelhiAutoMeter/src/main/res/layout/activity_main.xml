@@ -22,7 +22,7 @@
             android:ems="10"
             android:id="@+id/kilometers"
             android:layout_gravity="left|center_vertical"
-            android:width="70dp"
+            android:width="90dp"
             android:text="0.0"
             android:numeric="decimal"
             android:lines="1" />
@@ -34,7 +34,7 @@
             android:ems="10"
             android:id="@+id/oldFare"
             android:layout_gravity="left|center_vertical"
-            android:width="70dp"
+            android:width="90dp"
             android:text="0.00"
             android:numeric="decimal"
             android:lines="1"
