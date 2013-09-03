@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Delhi Auto Meter (New Fare</string>
+    <string name="app_name">Delhi Auto Meter (New Fare)</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_track">MainActivity</string>
+    <string name="title_activity_track">Real Time Tracking</string>
 
 </resources>

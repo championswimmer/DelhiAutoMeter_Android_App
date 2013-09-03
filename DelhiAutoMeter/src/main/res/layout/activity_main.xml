@@ -84,4 +84,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:onClick="gotoRealTimeTracking" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="A live Auto meter that will show Kilometeres travelled and Fare (calculated as per new rate) as you keep travelling in an Auto."
+        android:id="@+id/textView"
+        android:layout_below="@+id/buttonRealTime"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

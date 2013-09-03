@@ -53,14 +53,14 @@ public class TrackActivity extends Activity {
         trackLocation();
     }
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.track, menu);
         return true;
     }
-
+*/
     public void trackLocation () {
         Log.d("ARNAV", "tracklocation started");
 
