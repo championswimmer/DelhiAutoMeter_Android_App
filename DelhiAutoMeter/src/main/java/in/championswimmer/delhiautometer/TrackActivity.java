@@ -8,7 +8,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
-import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
@@ -22,13 +21,13 @@ public class TrackActivity extends Activity {
     public Location lastLocation = null;
     public Float distance = (float) 0.0, finalKilometers = (float) 0, finalFare = (float) 0;
     public Criteria criteria;
-    public Context context = this.getApplicationContext();
+    public Context context;
 
 
     public TrackActivity() {
         criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        locationManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
+        //context = getApplicationContext();
 
     }
 
@@ -36,6 +35,8 @@ public class TrackActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track);
+        locationManager = (LocationManager) getApplicationContext().getSystemService(getApplicationContext().LOCATION_SERVICE);
+
         meterKilometer = (TextView) findViewById(R.id.meterKilometer);
         meterFare = (TextView) findViewById(R.id.meterFare);
 
@@ -49,7 +50,7 @@ public class TrackActivity extends Activity {
             startActivity(intent);
         }
 
-            trackLocation();
+        trackLocation();
     }
 
 
@@ -87,15 +88,19 @@ public class TrackActivity extends Activity {
             public void onProviderEnabled(String s) {
                 //lastLocation = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, true));
                 Log.d("ARNAV", "provider enabled");
+                locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, false), 600, 50, this);
+
 
             }
 
             @Override
             public void onProviderDisabled(String s) {
+                Toast.makeText(getApplicationContext(),
+                        "DO NOT DISABLE GPS!!\nEnable GPS immediately to resume tracking", Toast.LENGTH_LONG).show();
 
             }
         };
-        locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, true), 5000, 100, locLis);
+        locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, false), 600, 50, locLis);
 
 
     }

@@ -17,24 +17,24 @@
 
         <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/kilometers"
             android:layout_gravity="left|center_vertical"
-            android:width="150dp"
+            android:width="70dp"
             android:text="0.0"
             android:numeric="decimal"
             android:lines="1" />
 
         <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/oldFare"
             android:layout_gravity="left|center_vertical"
-            android:width="150dp"
+            android:width="70dp"
             android:text="0.00"
             android:numeric="decimal"
             android:lines="1"
@@ -44,27 +44,35 @@
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search by old fare"
+            android:layout_height="55dp"
+            android:text="Search by
+            \nold fare"
             android:id="@+id/oldFareSearch"
             android:singleLine="false"
             android:layout_below="@+id/kilometers"
             android:layout_toRightOf="@+id/kilometers"
             android:layout_alignBottom="@+id/oldFare"
             android:layout_alignRight="@+id/kilometerSearch"
-            android:onClick="getFareFromOldFare" />
+            android:onClick="getFareFromOldFare"
+            android:maxLines="2"
+            android:minLines="2"
+            android:lines="2" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search by kilometers"
+            android:layout_height="55dp"
+            android:text="Search by
+            \nkilometers"
             android:id="@+id/kilometerSearch"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/kilometers"
             android:singleLine="false"
             android:layout_above="@+id/oldFare"
-            android:onClick="getFareFromKilometers" />
+            android:onClick="getFareFromKilometers"
+            android:maxLines="2"
+            android:lines="2"
+            android:minLines="2" />
     </RelativeLayout>
 
     <Button
