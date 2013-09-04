@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.championswimmer.delhiautometer"
-    android:versionCode="013"
-    android:versionName="0.1.3" >
+    android:versionCode="020"
+    android:versionName="0.2.0" >
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission
@@ -30,7 +30,11 @@
         <activity
             android:name="in.championswimmer.delhiautometer.TrackActivity"
             android:label="@string/title_activity_track"
-            android:screenOrientation="locked" >
+            android:screenOrientation="locked"
+            android:parentActivityName="in.championswimmer.delhiautometer.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
         </activity>
     </application>
 

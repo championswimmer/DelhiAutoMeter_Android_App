@@ -1,6 +1,8 @@
 package in.championswimmer.delhiautometer;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
@@ -11,6 +13,7 @@ import android.app.Activity;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +25,14 @@ public class TrackActivity extends Activity {
     public Float distance = (float) 0.0, finalKilometers = (float) 0, finalFare = (float) 0;
     public Criteria criteria;
     public Context context;
+    public boolean meterRunning = false;
 
 
     public TrackActivity() {
         criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        //context = getApplicationContext();
+        //context = (Context) getApplicationContext();
+
 
     }
 
@@ -35,6 +40,7 @@ public class TrackActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track);
+
         locationManager = (LocationManager) getApplicationContext().getSystemService(getApplicationContext().LOCATION_SERVICE);
 
         meterKilometer = (TextView) findViewById(R.id.meterKilometer);
@@ -50,7 +56,7 @@ public class TrackActivity extends Activity {
             startActivity(intent);
         }
 
-        trackLocation();
+        //trackLocation();
     }
 
 /*
@@ -61,7 +67,7 @@ public class TrackActivity extends Activity {
         return true;
     }
 */
-    public void trackLocation () {
+    public void trackLocation (boolean startTracking) {
         Log.d("ARNAV", "tracklocation started");
 
         LocationListener locLis = new LocationListener() {
@@ -100,7 +106,16 @@ public class TrackActivity extends Activity {
 
             }
         };
-        locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, false), 600, 50, locLis);
+        if (startTracking) {
+            locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, false), 600, 50, locLis);
+        } else {
+            try {
+                locationManager.removeUpdates(locLis);
+            } catch (Exception e ) {
+                //Nothing to do here
+            }
+        }
+
 
 
     }
@@ -111,11 +126,47 @@ public class TrackActivity extends Activity {
             finalFare = (((finalKilometers - 2) * 8) + 25);
         }
         else {
-            finalFare = (float) 0.00;
+            finalFare = (float) 25.00;
         }
         Log.d("ARNAV", finalKilometers + "  " + finalFare);
         meterKilometer.setText("Distance \t : " + (String.format("%.2f", finalKilometers)));
         meterFare.setText("Fare \t \t \t : " + String.format("%.2f", finalFare));
+
+    }
+
+    public void closeMeter (View v) {
+        meterRunning = false;
+        trackLocation(false);
+        finish();
+    }
+    public void startMeter (View v) {
+        finalFare = (float) 25.00;
+        meterFare.setText("Fare \t \t \t : " + String.format("%.2f", finalFare));
+        meterRunning = true;
+        trackLocation(true);
+    }
+    public void resetMeter (View v) {
+        finalKilometers = (float) 0;
+        finalFare = (float) 0;
+        meterKilometer.setText("Distance \t : " + (String.format("%.2f", finalKilometers)));
+        meterFare.setText("Fare \t \t \t : " + String.format("%.2f", finalFare));
+        lastLocation = null;
+        meterRunning = false;
+        trackLocation(false);
+
+
+    }
+
+
+    @Override
+    public void onBackPressed () {
+        if (meterRunning) {
+            Toast.makeText(getApplicationContext(),
+                    "Close the Meter using CLOSE button. To use other apps, press Home and launch apps from the launcher.", Toast.LENGTH_LONG).show();
+        } else {
+            finish();
+        }
+
 
     }
     
