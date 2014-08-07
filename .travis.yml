@@ -2,7 +2,7 @@ language: android
 
 branches:
   only:
-    - dev
+    - master
 
 script: "./gradlew clean assembleDebug"
 
