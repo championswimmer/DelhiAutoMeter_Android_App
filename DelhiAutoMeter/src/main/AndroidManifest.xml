@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.championswimmer.delhiautometer"
-    android:versionCode="020"
-    android:versionName="0.2.0" >
+    package="in.championswimmer.delhiautometer2"
+    android:versionCode="200"
+    android:versionName="2.0.0" >
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission

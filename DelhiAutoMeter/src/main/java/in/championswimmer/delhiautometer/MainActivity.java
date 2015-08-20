@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import in.championswimmer.delhiautometer2.R;
 
 public class MainActivity extends Activity {
     public Double kilometers;
